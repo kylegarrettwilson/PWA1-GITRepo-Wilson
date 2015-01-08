@@ -2,7 +2,7 @@
 /*
  Name: Kyle
  Date: 1-7-15
- Class & Section:  PWA1-01
+ Class & Section:  PWA1-####
  Comments: "Goal 1: Review of WPF"
  */
 
@@ -184,7 +184,7 @@ console.log('------ numbers ----------');
 
 //var num1 = 10;
 //var num2 = 3;
-//console.log("remainder: ", num1%num2);
+//console.log("remainder ", num1%num2);
 
 //____________________________________________________________________________________________
 
