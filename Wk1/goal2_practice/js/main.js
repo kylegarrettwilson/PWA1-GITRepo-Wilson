@@ -1,7 +1,7 @@
 /*
-     Name:
-     Date:
-     Class & Section:  PWA1-####
+     Name:  Kyle Wilson
+     Date:  1-8-15
+     Class & Section:  PWA1-01
      Comments: "Goal 2: JavaScript Practice"
  */
 
@@ -157,37 +157,54 @@ var str1 = 'I love JavaScript! ';
 var str2 = 'JavaScript loves me!';
 var abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
+
+
 // Use charAt() to console.log the 'v' in str1.
+
+	console.log(str1.charAt(4));    //this works because java thinks its an array of characters
 
 
 // Use indexOf() to console.log the index of 'm' in str2.
 
+	console.log(str2.indexOf('m'));           // this counts up what spot of the array it is located in
 
 // Use lastIndexOf() to console.log the last 'a' in str1.
 
+	console.log(str1.lastIndexOf('a'));      // looking for the last position of a in the string
 
 // Use length to console.log the length in str1.
+
+	console.log(str1.length);    // counts number of characters in the string
 
 
 // Use split() to console.log an array of the ABC's using the abc variable.
 // EX: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
+	console.log(abc.split(''));  // this tells it to put " around each item in array
 
 //STUDENT ACTIVITY 1:
 // Use substr() to console.log 'JavaScript!' from str1.
 
+	console.log(str1.substr(7,11));  //starts at index 7 and then grab the next 11 characters
+
 
 // Use concat() to console.log 'I love JavaScript ! JavaScript loves me!' with str1 and str2.
 
+	console.log(str1.concat(str2));		// this concats two strings together for us
 
 
 //STUDENT ACTIVITY 2:
 // Use substring() to console.log 'JavaScript' from str2.
 
+	console.log(str2.substring(0,10));   // this started at zero and then take the next ten characters
+
 
 //STUDENT ACTIVITY 3:
 // 1. Use toLowerCase() to console.log the str1 all in lowercase letters.
 // 2. Use toUpperCase() to console.log the str1 all in uppercase letters.
+
+	console.log(str1.toLowerCase());
+	console.log(str1.toUpperCase());
 
 
 
@@ -199,18 +216,27 @@ var abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 console.log('------ MORE Numbers ----------');
 
+	var num = 457896;
+	var dec = 33.123456;
+
 // Use toExponential() console.log num in exponential notation with two decimals.
+
+	console.log(num.toExponential(2));  // this puts the number into exponential notation
 
 
 // Use toPrecision() console.log dec as four numbers.
+
+	console.log(dec.toPrecision(4));  // this displays only four numbers out of that number
 
 
 //STUDENT ACTIVITY 4:
 //What method would you use to console.log the variable dec with two decimals.
 
+	console.log(dec.toFixed(2));
 
 // Use toString() to console.log the type of num.
 
+	console.log(typeof num.toString());  // this just tells us what the thing is to the right of it toString changes it to a string
 
 
 /*
@@ -234,7 +260,14 @@ console.log('------ MORE Numbers ----------');
 
 console.log('------ MORE Booleans ----------');
 
+	var num = 9 * "k";       //this is false because the value k is undefined so the entire thing is false
+	console.log(num);
 
+	if(num){
+		console.log("its true, the value is: ", num);
+	}else{
+		console.log("its false, the value is ", num);
+	}
 	
 /*
 	===============================================
