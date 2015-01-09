@@ -1,8 +1,8 @@
 
 /*
- Name: Kyle
+ Name: Kyle Wilson
  Date: 1-7-15
- Class & Section:  PWA1-####
+ Class & Section:  PWA1-01
  Comments: "Goal 1: Review of WPF"
  */
 
@@ -724,15 +724,15 @@ console.log('------Functions ----------');
  *****************************
  */
 
-var myCtr = 1;
+//var myCtr = 1;
 
-var myCounter = function(){
- myCtr++;
- console.log("counter = ", myCtr);
-}
+//var myCounter = function(){
+// myCtr++;
+// console.log("counter = ", myCtr);
+//}
 
-myCounter();   // this will display 2
-myCounter();   // this will display as three because it runs again
+//myCounter();   // this will display 2
+//myCounter();   // this will display as three because it runs again
 
 
 
@@ -769,21 +769,23 @@ myCounter();   // this will display as three because it runs again
 
  - in the function - var1 and var2 are referred to as parameters of the function
  - items inside our function we call on these variables.. such as:
- */
+ *//*
 
 
-var value1 = 1;
-var value2 = 2;
+ var value1 = 1;
+ var value2 = 2;
 
-var myFn = function(var1 , var2){
+ var myFn = function(var1 , var2){
 
  console.log("function number: ", var1 + var2);
-};
+ };
 
-// call the function now
+ // call the function now
 
-myFn(value1, value2)
+ myFn(value1, value2);
 
+
+ */
 // the two names in the functions can be totally different but when you call them bellow it has to be the var names
 
 
@@ -798,12 +800,28 @@ myFn(value1, value2)
  5.  second time: pass a 2 into the funciton as an argument
  6.  console.log the results
  ********************************************/
+/*
+
+
+
+ var myctr = 1;
+
+
+ var myCounter = function(newct){
+ var myctr = 50
+ myctr += newct;
+ console.log("counter = ", myctr);
+ };
+
+
+ myCounter(5);
+ myCounter(2);
 
 
 
 
 
-
+ */
 
 /*******************************************
  function literal: returning values
@@ -814,15 +832,25 @@ myFn(value1, value2)
  type) back to the point of call (referred to as a method)
  - the called function should be assigned to a variable (i.e name - see below)
  ********************************************/
+/*
 
 
 
-// if a return gives back no value, it instead returns “undefined”
-// this technique is commonly used to end a function early, during execution
-// change the return statement to this 'return;'
+ var myFn = function(){
+ return "James Bond";
+ };
+
+ var name = myFn();
+
+ // with a function that is returning an item it is good to put it in a var so you can recall the variable later on
+ // as above
+
+ // if a return gives back no value, it instead returns “undefined”
+ // this technique is commonly used to end a function early, during execution
+ // change the return statement to this 'return;'
 
 
-
+ */
 /*******************************************
  STUDENT ACTIVITY 7:
 
@@ -832,9 +860,25 @@ myFn(value1, value2)
  output the same info
  4.  console.log the results
  ********************************************/
+/*
+
+ var myCounter = function(newct){
+
+ var myctr = 50;
+ myctr += newct;
+ return myctr;
+
+ };
 
 
+ var cnt = myCounter(5);
+ console.log("counter = ", cnt);
 
+ var cnt = myCounter(2);
+ console.log("counter = ", cnt);
+
+
+ */
 
 /*******************************************
  STUDENT ACTIVITY 8:
@@ -845,4 +889,57 @@ myFn(value1, value2)
  4. return Mood
  5. console.log the Results
  ********************************************/
+/*
 
+
+
+ var value1 = "Sunny";
+ var value2 = 10;
+
+ var moodFn = function(weather, waves) {
+ if (weather === "sunny") {
+
+ if (waves === 10) {
+
+ bobsMood = "Pumped";
+
+ } else if ((waves <= 9) && (waves >= 5)) {
+
+ bobsMood = "Mellow";
+
+ } else {
+
+ bobsMood = "Bummed";
+ }
+
+
+ } else if (weather === "overcast") {
+
+ if ((waves < 10) && (waves >= 7)) {
+
+ bobsMood = "jacked up";
+ } else if ((waves <= 6) && (waves >= 3)) {
+
+ bobsMood = "totally bummed";
+ } else {
+
+ bobsMood = "not happy";
+ }
+ ;
+
+ return bobsMood;
+
+ }
+ ;
+
+ };
+
+ var moodType = moodFn(value1,value2);
+
+ console.log("Bob's mood is ", moodType);
+
+
+ */
+
+
+// value one and value two are passed in and the names are then changed to weather and waves
