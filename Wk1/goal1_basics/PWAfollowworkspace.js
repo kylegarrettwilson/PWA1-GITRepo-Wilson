@@ -769,7 +769,7 @@ myCounter();   // this will display as three because it runs again
 
  - in the function - var1 and var2 are referred to as parameters of the function
  - items inside our function we call on these variables.. such as:
- */
+ *//*
 
 
 var value1 = 1;
@@ -782,8 +782,10 @@ var myFn = function(var1 , var2){
 
 // call the function now
 
-myFn(value1, value2)
+myFn(value1, value2);
 
+
+*/
 // the two names in the functions can be totally different but when you call them bellow it has to be the var names
 
 
@@ -798,12 +800,28 @@ myFn(value1, value2)
  5.  second time: pass a 2 into the funciton as an argument
  6.  console.log the results
  ********************************************/
+/*
+
+
+
+var myctr = 1;
+
+
+var myCounter = function(newct){
+
+ myctr += newct;
+ console.log("counter = ", myctr);
+};
+
+
+myCounter(5);
+myCounter(2);
 
 
 
 
 
-
+*/
 
 /*******************************************
  function literal: returning values
