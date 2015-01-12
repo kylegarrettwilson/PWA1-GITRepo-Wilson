@@ -15,7 +15,7 @@
 			query = query.substring(1, query.length);   // this puts a " " in the search field at the start by returning substring 1
 		};
 		while(query.charAt(query.length-1) === ""){   // this is placing no space after the users input
-			query = query.substring(0, query.length-1);  // the substring is working with the 0 place and the query length to adjust length of whitespace
+			query = query.substring(0, query.length-1);  // the substring is working with the 0 place and the query length to adjust length of whitespace after search term
 		;
 		
 		// Check search length, must have 3 characters
@@ -103,7 +103,7 @@
 			// make the video link - THE NEXT LINE IS CORRECT.
 			html += '<p><a href=' + url + '>' + title + '</a></p>';  // makes the video name a link for the video url
 		};
-		resultsDIV.innerHTML = html; //THIS LINE IS CORRECT.  
+		resultsDIV.innerHTML = html; //THIS LINE IS CORRECT.
 	};
 	
 	// The onsubmit event will be reviewed in upcoming Course Material.
