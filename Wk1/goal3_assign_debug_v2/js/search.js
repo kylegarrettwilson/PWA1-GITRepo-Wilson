@@ -53,18 +53,18 @@
 			// each db[i] is a single video item, each title ends with a pipe "|"
 			// save a lowercase variable of the video title
 			var dbTitleEnd = db[i].indexOf('|');      // using the indexOf to tell when the video item ends on each on
-			var dbitem = db[i].tolowercase().substring(0, dbTitleEnd);  // converting TitleEnd of the video to lowercase and save
+			var dbitem = db[i].tolowercase().substring(0, dbTitleEnd);  	// converting TitleEnd of the video to lowercase and save
 			
 			// loop through the user's search query words
 			// save a lowercase variable of the search keyword
-			for(var ii=0, jj=queryArray.length; ii<jj; ii++){  // loop through the array of the users search we created above
-				var qitem = queryArray[ii].tolowercase();  //convert to lowercase and save
+			for(var ii=0, jj=queryArray.length; ii<jj; ii++){  	// loop through the array of the users search we created above
+				var qitem = queryArray[ii].tolowercase();  		//convert to lowercase and save
 				
 				// is the keyword anywhere in the video title?
 				// If a match is found, push full db[i] into results array
 				var compare = dbitem.indexOf(qitem);   // indexing the video name and comparing any similar words or characters with the search
-				if(compare !== -1){   // if there the variable is true
-					results.push(db[i]);  // push results
+				if(compare !== -1){   					// if the variable the compare is not -1
+					results.push(db[i]); 				 // push results of database
 				};
 			;
 		;
@@ -83,7 +83,7 @@
 	var noMatch = function(){  //this is only ran to the html file if there are no results
 		var html = ''+
 			'<p>No Results found.</p>'+  // pushed to paragraph of html
-			'<p style="font-size:10px;">Try searching for "JavaScript".  Just an idea.</p>'  // css style
+			'<p style="font-size:10px;">Try searching for "JavaScript".  Just an idea.</p>'  // css style and lower message
 		;
 		resultsDIV.innerHTML = html;  // going to html
 	};
@@ -94,7 +94,7 @@
 		// THE NEXT 4 LINES ARE CORRECT.
 		var html = '<p>Results</p>',  // pushing this title to the paragraph of html page
 			title, // these are both holding spots for the results to organize themselves in
-			url
+			url   // these are both holding spots for the results to organize themselves in
 		;
 		
 		// loop through all the results search() function
@@ -102,7 +102,7 @@
 		
 			// title of video ends with pipe
 			// pull the title's string using index numbers
-			titleEnd = results[i].indexOf('|');  // the pipe determines where the video ends to look for that
+			titleEnd = results[i].indexOf('|');  // the pipe determines where the video ends, to look for that
 			title = results[i].subString(0, titleEnd);  // this pulls the title of the video out
 			
 			// pull the video url after the title
