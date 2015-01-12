@@ -1,3 +1,11 @@
+// Kyle Wilson
+// 1-10-15
+// Week One Homework Debugging
+
+
+
+
+
 // Create privatized scope using a self-executing function
 (function(){
 	
