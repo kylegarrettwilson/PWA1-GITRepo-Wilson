@@ -91,7 +91,7 @@
 
                 }else if(playerTwoHealth < 1){    // if player two health below one
 
-            results = playerOneName + "Wins!!!";    // then player one wins
+            results =  playerOneName + "Wins!!!";    // then player one wins
         }
 
         return results;  // this returns the results of this if else statement to the results area in the right function
