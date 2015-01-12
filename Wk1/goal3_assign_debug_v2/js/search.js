@@ -52,7 +52,7 @@
 		
 			// each db[i] is a single video item, each title ends with a pipe "|"
 			// save a lowercase variable of the video title
-			var dbTitleEnd = db[i].indexOf('|');      // using the indexOf to tell when the video item ends on each on
+			var dbTitleEnd = db[i].indexOf('|');      // using the indexOf to tell when the video item ends on each line with the pipe key in the database file
 			var dbitem = db[i].tolowercase().substring(0, dbTitleEnd);  	// converting TitleEnd of the video to lowercase and save
 			
 			// loop through the user's search query words
@@ -103,7 +103,7 @@
 			// title of video ends with pipe
 			// pull the title's string using index numbers
 			titleEnd = results[i].indexOf('|');  // the pipe determines where the video ends, to look for that
-			title = results[i].subString(0, titleEnd);  // this pulls the title of the video out
+			title = results[i].subString(0, titleEnd);  // this pulls the title of the video out by using the titleEnd pipe key
 			
 			// pull the video url after the title
 			url = results[i].substring(results[i].indexOf('|')+1, results[i].length);  //makes the url for the link
