@@ -525,6 +525,14 @@ console.log('------ MORE Functions ----------');
 */
 console.log('------ While / Loop ----------');
 
+	var numOfBeers = 10;
+
+	while (numOfBeers > 0){
+		console.log(numOfBeers + " kegs on the wall.");
+		numOfBeers--;  // this deducts one from the number of beers until it runs to zero
+
+	}
+
 	
 /*
 	===============================================
@@ -550,6 +558,12 @@ console.log('------ While / Loop ----------');
 
 console.log('------For Loop ----------');
 
+	for (var beers = 10; beers > 0; beers--){    // this starts the beers at 10 and then decrements by one until it makes the condition false so zero beers
+		console.log(beers+ " bottles of beers on the wall.")
+	}
+
+
+
 
 	/* 
 		array.Length
@@ -563,25 +577,36 @@ console.log('------For Loop ----------');
 			- the  .length property returns the count, which would be 5	
 	*/	
 
+	var myNum = [1,2,3,4,5];
+	console.log(myNum.length);
 
-	/* 
-		using the for() loop with .length
+	for (var i = 0; i<myNum.length; i++){  // this is say that as long as the array length is below i than it will run code
+		console.log(myNum[i]);
+	}
 
-		- the for loop is the most commonly used in programming, since 
-			the increment makes it easy to cycle through arrays or objects.  
-		- to cycle through each index of an array, we could use the .length 
-			property, and use the counter i as the index, such as:
+	for (var i = 0, j = myNum.length; i <j; i++){  // if i is less than j than run code, this is more efficiant
+		console.log(myNum[i]);
+	}
 
-		for ( var i=0; i<myNums.length; i++){
-			console.log( myNums[i] );
-		};
 
-		- however, this is not the most efficient way...
-		- it is inefficient on the CPU
+/*
+                using the for() loop with .length
 
-		- depending on the size of an array, it can be more efficient to 
-			save the array length in a variable, inside the first statement
-	*/
+                - the for loop is the most commonly used in programming, since
+                    the increment makes it easy to cycle through arrays or objects.
+                - to cycle through each index of an array, we could use the .length
+                    property, and use the counter i as the index, such as:
+
+                for ( var i=0; i<myNums.length; i++){
+                    console.log( myNums[i] );
+                };
+
+                - however, this is not the most efficient way...
+                - it is inefficient on the CPU
+
+                - depending on the size of an array, it can be more efficient to
+                    save the array length in a variable, inside the first statement
+            */
 
 
 	/*
@@ -591,7 +616,13 @@ console.log('------For Loop ----------');
 		- by using the "break" statement, any loop will stop running at the 
 			break point, and perform no more iterations
 	*/
+		for (var i = 0, j = myNum.length; i <j; i++){  // setting up a break
 
+			if (i === 3) {
+				console.log("It broke the cycle");
+				break;
+			}
+			console.log("the length of the loop: ", myNum[i]);
 
 
 	/*
@@ -600,7 +631,16 @@ console.log('------For Loop ----------');
 		- while the break statement will stop a loop and exit it, the continue 
 			statement will stop a loop’s current iteration, and continue 
 			on to the next iteration
-	*/
+			*/
+
+			for (var i = 0, j = myNum.length; i <j; i++){  // setting up a continue
+
+				if (i === 3) {
+					console.log("It broke the cycle");
+					continue;
+				}
+				console.log("the length of the loop: ", myNum[i]);
+
 
 
 /*******************************************
@@ -614,6 +654,23 @@ console.log('------For Loop ----------');
 		b.  create a for loop using the faster method (4 parameters)
 			- in the loop just console.log the values
 ********************************************/
+
+	var cartoonDudes = [
+	"Superman",
+	"Batman",
+	"Wolverine",
+	"Iceman"
+
+];
+
+				for (var i = 0; i<cartoonDudes.length; i++){
+				console.log(cartoonDudes[i]);
+			}
+
+				for (var i = 0, j=cartoonDudes.length; i < j; i++){
+					console.log(cartoonDudes[i]);
+				}
+
 
 
 
@@ -641,4 +698,4 @@ console.log('------For Loop ----------');
 
 
 
-})();
+}})();
