@@ -660,6 +660,22 @@ console.log('------------ DOM Events Ex 1-------------------');
 
 var nav = document.querySelectorAll('#nav li a');
 
+	for (i = 0, max = nav.length; i < max; i++){
+		console.log(nav[i]);  // this is just pulling out all the links at the top
+
+		nav[i].onclick = function(e){
+			console.log(e);   // if any user clicks on the links than it will print to console
+
+			e.preventDefault();  // this is preventing the bubbling affect
+
+			return false;
+		}
+
+
+	}
+
+
+
 
 /*
 // this just console.log's when a click occurs
@@ -697,25 +713,72 @@ var nav = document.querySelectorAll('#nav li a');
 
 
 console.log('------------ DOM Events Ex 2 -------------------');
-/*
+
 // this example changes the clicked link to the active class
 
+// this is going to change the css link color when user clicks on link to make it active
+
+ 	for (i = 0, max = nav.length; i < max; i++){
+
+		nav[i].onclick = function(e){
+
+			for (ii = 0, max2 = nav.length; ii < max2; ii++){
+				nav[ii].setAttribute("class", "navitem");  // this is to make sure the navitem doesnt change
+			}
+
+			console.log(this); // this is the targeted item we are working one so this is to make sure we are
+								// targeting the correct area, the item that the function is running on
+
+			this.setAttribute("class", "navitem active");
+
+			e.preventDefault();
+			return false
+
+
+		};
+
+
+	};
 
 
 
-*/ 
+
+
 
 
 
 console.log('------------ DOM Events Ex 3 -------------------');
-/*
+// this is an easy version of the above code
 // a more efficient way to do the above
 
 
+	nav[0].setAttribute("class", "navitem active"); //
+
+	for (i = 0, max = nav.length; i < max; i++){
+
+		nav[i].onclick = function(e){
+
+
+			document.querySelector("#nav li a.active").setAttribute("class", "navitem");
+
+			// this is grabbing all the a links and then set the attribute class to navitem
+
+			console.log(this); // this is the targeted item we are working one so this is to make sure we are
+			// targeting the correct area, the item that the function is running on
+
+			this.setAttribute("class", "navitem active");
+
+			e.preventDefault();
+			return false
+
+
+		};
+
+
+	};
 
 
 
-*/
 
 
 })(); // end wrapper
