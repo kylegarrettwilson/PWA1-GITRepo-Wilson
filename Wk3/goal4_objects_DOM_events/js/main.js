@@ -256,14 +256,26 @@ console.log(studentActivity.students.GPA);
 	console.log("Average Grade " , gradeAvg(studentActivity)); // this is invoking the entire thing above into the function
 
 /* ===============================================================
-	The for-in object loop
+	The for-in object loop   // filters through the object loop
 ------------------------------------------------------------------	
 
 	for(var key in obj){
 		obj[key]
+
+
 	}
 */
     console.log("---------- Object - For In Loop ----------------");
+
+	var students = {name:"James Bond", gender: "male", job: "student"};
+
+	for(var key in students){   // the key leads the var students into the for loop
+		console.log("Key Name", key);   // this pulls out name:
+		console.log("Value of the key [",key,"]", students[key]);  // this pulls out james bond
+
+
+	};
+
 
 
 
@@ -300,6 +312,15 @@ console.log(studentActivity.students.GPA);
 */
     console.log('------ Objects - Converting Datatypes ----------');
 
+	var myNum = 1;
+	myString = String(myNum);
+	console.log("myString:", typeof myString, myString);
+	myBool = Boolean(myString);  //in booleans a 1 is true and a 2 is false
+	console.log("myBool", typeof myBool, myBool);  // so this will come back as false if it was converted to a string
+
+
+
+
 
 
 /*
@@ -311,18 +332,51 @@ console.log(studentActivity.students.GPA);
 
 // #1 - shows string length
 
+	var myStr = "OMG";
+	console.log(myStr.length);
+
 
 // #2 - shows array length
-	
+
+	var myArr = [6, 10];
+	console.log(myArr.length);
+
 
 // #3 - shows and array of objects, inside of an object length
+
+	var studentActivity = {
+
+		schoolName: "Full Sail",
+		studentCount: 16000,
+		address: "123 University Ave",
+		students:[ {
+			name: "James Bond",
+			GPA: 3.9,
+			classes: ["PWA1", "PWA2"]
+		}
+		]
+	};
+
+	console.log(studentActivity.students.length);
 	
 
 console.log('------ MORE Object examples - Objects/Functions ----------');
 
 // showing a function call and creating a method
 
+	var fn = function(name, course){
 
+		return {
+			sayHi: function(){
+				console.log("My name is " + name + "I am in course" + course)
+			}
+
+
+		}
+
+	}
+
+	fn("JamesBond", "PWA!").sayHi();   //passing into function and also tagging on a method name to that call
 
 /*
 	==================================================================
@@ -334,18 +388,23 @@ console.log('------ MORE Object examples - Objects/Functions ----------');
 */
 console.log('------------ DOCUMENT OBJECT MODEL -------------------');
 
+	// information of what we can do with a web page, exposes access to all the elements of a web document
+
 //Window DOM object
-/*
- console.log(window);
- console.log(window.location);
- console.log(window.history);
+
+ console.log(window);   // this will include everything you can target in a html file
+ console.log(window.location);  // this is just targeting the location function out of the window object
+ console.log(window.history);  // same as above but for history
  console.log(window.navigator);
 
- //Document DOM object
+
+
+ //Document DOM object    //
  console.log(document);
  console.log(document.body);
  console.log(document.head);
- */
+
+
 
 
 /*
@@ -362,11 +421,17 @@ console.log('------------ DOCUMENT OBJECT MODEL -------------------');
 	
 	- Save the html element to a variable for later reference.
 	- Code shouldn't repeat itself. Code shouldn't repeat itself.
+
+	Can only select one item at a time
 */
 
 console.log('------------ getElementById -------------------');
 
+	var example = document.getElementById("playbox");
 
+		console.log(example);
+		playbox.style.backgroundColor = "Red";  // changing it to red background in the playbox field
+													// you are selecting an item to do something with it
 
 
 /*
@@ -375,13 +440,24 @@ console.log('------------ getElementById -------------------');
 	------------------------------------------------------------------
 	- Finds all html elements on the page with a matching html tag
 	- RETURNS an array (collection) of DOM objects.
+
+	Allows you to collect multiple items
 */
 
 console.log('------------ getElementsByTagName -------------------');
+/*
+	var anchors = document.getElemtsByTagName("a");  // targeting all the anchors
+
+		console.log(anchors);  // this is pulling all of them out\
+
+		console.log(anchors[1]); // the anchors are indexed like an array so this is pulling the second one out
 
 
+		for (i=0, max = anchors.length; i<max; i++){   // this is running through each anchor
+			console.log(anchors[i]);
+		}
 
-
+*/
 /*
 	==================================================================
 	document.querySelectorAll(string);
@@ -396,6 +472,12 @@ console.log('------------ getElementsByTagName -------------------');
 console.log('------------ querySelectorAll -------------------');
 
 
+	var nav = document.querySelectorAll("#nav li"); // this is telling it to pull all the li's within the nav
+	console.log(nav);
+
+	var selector = document.querySelectorAll(".class"); // this is selecting using a class
+	console.log(selector);
+
 
 
 /*
@@ -409,7 +491,8 @@ console.log('------------ querySelectorAll -------------------');
 */
     console.log('------------ querySelector -------------------');
 
-
+	var nav = document.querySelectorAll("#nav");  // this will only bring out one thing within the nav
+	console.log(nav);
 
 
 
@@ -434,6 +517,12 @@ console.log('------------ querySelectorAll -------------------');
     */
     console.log('------------ TRAVERSAL -------------------');
 
+	var apple = document.querySelectorAll("#nav li a")[2]; // this is going down to a level and picking the second in array line
+
+	console.log(apple);
+	console.log(apple.parentNode.parentNode); // this is going up two folders from the a level. Each parentnode goes up one
+
+
 
 
 
@@ -454,25 +543,71 @@ console.log('------------ querySelectorAll -------------------');
 */
 
 
+	var navLinks = document.querySelectorAll("#nav li");
+
+	for (var i = 0, max = navLinks.length; i < max; i++) {
+
+		var href = navLinks[i].firstChild.getAttribute("href");
+		// this is going to the li level and then using firstchild it is going down one more to the
+		// a level and then looking for the href which is a link
+
+		if (href === "#1") {
+			var href2 = navLinks[i].firstChild;
+			console.log(href2);
+
+			href2.setAttribute("href", "http://www.fullsail.com"); // changing link one to link to full sail website
+
+
+		}
+		;
+
+
+		//}
+
+
+		/*
+		 ==================================================================
+		 Manipulating CSS Classes
+		 ------------------------------------------------------------------
+		 - If you use setAttribute to change the "class" attribute of an element,
+		 that element is immediately redrawn with the new css styles.
+
+		 - Just like normal, you can set MULTIPLE classes at once.
+
+		 element.setAttribute('class', 'thumb active')
+
+		 - FYI: Elements can have multiple classes.
+		 */
+
+		console.log('------------ Manipulating CSS Classes -------------------');
+
+
+		//var aClass = navLinks[i].firstChild.getAttribute("class");
+			//console.log(aClass);
+
+		//navLinks[i].firstChild.setAttribute("class","navitem active");
+
+
+		//navLinks[i].firstChild.setAttribute("href", "http://google.com");
+		// so this is telling it to set all the href (links) for each one to google.com
+
+
+	};
+
+	var navLinks = document.querySelectorAll("#nav a");
+	console.log(navLinks[1].innerHTML);  //this is targeting the text we want on that line
+
+	navLinks[1].innerHTML = "This link rocks!";
+
+	for (var i = 0, max = navLinks.length; i < max; i++){
+
+		navLinks[i].innerHTML = "Click Me"+i;
+
+
+	};
 
 /*
-	==================================================================
-	Manipulating CSS Classes
-	------------------------------------------------------------------
-		- If you use setAttribute to change the "class" attribute of an element,
-			that element is immediately redrawn with the new css styles.
-		
-		- Just like normal, you can set MULTIPLE classes at once.
-		
-			element.setAttribute('class', 'thumb active')
 
-		- FYI: Elements can have multiple classes.
-*/
-
-console.log('------------ Manipulating CSS Classes -------------------');
-
-
-/*
 	==================================================================
 	Replacing an HTML container with new HTML
 	------------------------------------------------------------------
@@ -481,7 +616,14 @@ console.log('------------ Manipulating CSS Classes -------------------');
 		- See contentPreview in HTML
 
 Sample Link: http://www.instructables.com/files/deriv/FJI/WGSW/FPIUQQ3K/FJIWGSWFPIUQQ3K.MEDIUM.jpg
+
 */
+
+	var bigImage = document.querySelector("#contentPreview img");
+
+	bigImage.setAttribute("src", "http://www.instructables.com/files/deriv/FJI/WGSW/FPIUQQ3K/FJIWGSWFPIUQQ3K.MEDIUM.jpg");
+
+
 
 
 
