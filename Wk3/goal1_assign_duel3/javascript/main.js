@@ -13,7 +13,7 @@
 
     var fighterOneText = document.querySelector("#kabal").querySelector("p");   // defining fighter one dom spot
     var fighterTwoText = document.querySelector("#kratos").querySelector("p");  // defining fighter two dom spot
-    var roundText = document.querySelector("#h5");  // putting the round text in the h5 spot on the html page
+    var roundText = document.querySelector("h5");  // putting the round text in the h5 spot on the html page
     var button = document.querySelector("#fight_btn");  // putting the fight button on the html page for functionality
 
 
