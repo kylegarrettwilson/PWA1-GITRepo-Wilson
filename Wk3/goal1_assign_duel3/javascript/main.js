@@ -11,20 +11,20 @@
 
     // Defining the DOM pieces
 
-    var fighterOneText = document.querySelector("#kabal").querySelector("p");
-    var fighterTwoText = document.querySelector("#kratos").querySelector("p");
-    var roundText = document.querySelector("h5");
-    var button = document.querySelector("#fight_btn");
+    var fighterOneText = document.querySelector("#kabal").querySelector("p");   // defining fighter one dom spot
+    var fighterTwoText = document.querySelector("#kratos").querySelector("p");  // defining fighter two dom spot
+    var roundText = document.querySelector("h5");  // putting the round text in the h5 spot on the html page
+    var button = document.querySelector("#fight_btn");  // putting the fight button on the html page for functionality
 
 
     // Now the click event
 
-    button.addEventListener("click", fight, false);
+    button.addEventListener("click", fight, false);  // creating the mouse click action to run fight function
 
 
     // player name
 
-    var fightersTogether = [
+    var fightersTogether = [   //this is an object array with the players name, damage, and health inside
         {
 
             name: "Kabal",
@@ -38,56 +38,55 @@
             health: 100
 
         }];
-    var round = 0;   // this is the beginning round which will help to counter to ten rounds
+    var round = 1;   // this is the beginning round number
 
 
-    roundText.innerHTML = "Click FIGHT BUTTON to Start!";
-    fighterOneText.innerHTML = fightersTogether[0].name + ":  " + fightersTogether[0].health;
-    fighterTwoText.innerHTML = fightersTogether[1].name + ":  " + fightersTogether[1].health;
+    roundText.innerHTML = "Click Fight Button to Start!";  // this is the message printing to h5
+    fighterOneText.innerHTML = fightersTogether[0].name + ":  " + fightersTogether[0].health;  // this is setting up the player name and health
+    fighterTwoText.innerHTML = fightersTogether[1].name + ":  " + fightersTogether[1].health;  // into the html file
 
 
 
     function fight(){     // this is the fight function which contains the loop and math for the game play
-        console.log("in the fight function");    // checking the js file is running all the way down the variables to this point
+        console.log("in the fight function");    // checking the js file is running all the way down to this point
 
 
 
-        fighterOneText.innerHTML = fightersTogether[0].name + ":  " + fightersTogether[0].health;
-        fighterTwoText.innerHTML = fightersTogether[1].name + ":  " + fightersTogether[1].health;
+        fighterOneText.innerHTML = fightersTogether[0].name + ":  " + fightersTogether[0].health; // placing name and health inside html
+        fighterTwoText.innerHTML = fightersTogether[1].name + ":  " + fightersTogether[1].health;  // placing name and health inside html
 
 
-            var f1 = Math.floor(Math.random() * fightersTogether[0].damage + fightersTogether[0].damage * .5);
-            var f2 = Math.floor(Math.random() * fightersTogether[1].damage + fightersTogether[1].damage *.5);
+            var f1 = Math.floor(Math.random() * fightersTogether[0].damage + fightersTogether[0].damage * .5);  // this is still randomly calculating play ones damage, changed to use object array above
+            var f2 = Math.floor(Math.random() * fightersTogether[1].damage + fightersTogether[1].damage *.5);  // this is still randomly calculating play twos damage, changed to use object array above
 
 
-            fightersTogether[0].health -= f1;  // these will minus the number generated above from the overall player health, it has been changed to reference the array at the top
-            fightersTogether[1].health -= f2;   // these will minus the number generated above from the overall player health, it has been changed to reference the array at the top
+            fightersTogether[0].health -= f1;  // these will minus the number generated above from the overall player health
+            fightersTogether[1].health -= f2;   // these will minus the number generated above from the overall player health
 
 
-            console.log(fightersTogether[0].health, fightersTogether[1].health);  // this is printing to console each rounds results using the array info from above
+            console.log(fightersTogether[0].health, fightersTogether[1].health);  // this is printing to console each rounds results using the object from above
 
             var result = winnerCheck();  // the variable result will check to see if we have a winner using the function below
             console.log(result, "This is the result"); // printing result to console
 
-            roundText.innerHTML = "Round #" + round + " Results!";
-            round++;
+            roundText.innerHTML = "Round #" + round + " Results!";  // this is sending the updated round number and text to h5 on html page
+            round++;  // adding one to counter
+            if(result === "no winner") {   // if results equal no winner
 
-            if(result === "no winner") {
-
-                fighterOneText.innerHTML = fightersTogether[0].name + ":  " + fightersTogether[0].health;
-                fighterTwoText.innerHTML = fightersTogether[1].name + ":  " + fightersTogether[1].health;
+                fighterOneText.innerHTML = fightersTogether[0].name + ":  " + fightersTogether[0].health;  // then print updated health onto html page using innerHTML tag
+                fighterTwoText.innerHTML = fightersTogether[1].name + ":  " + fightersTogether[1].health; // then print updated health onto html page using innerHTML tag
 
 
-           }else{
+            }else{  // or
 
-                fighterOneText.innerHTML = result;
-                fighterTwoText.innerHTML = "";
+                fighterOneText.innerHTML = result;  // print result variable from below to html page
+                fighterTwoText.innerHTML = "";  // no info
 
-                button.removeEventListener("click", fight, false);
+                button.removeEventListener("click", fight, false);  // removing the click function after winner has been selected
 
-                document.querySelector(".buttonblue").innerHTML = "DONE!!!";
+                document.querySelector(".buttonblue").innerHTML = "DONE!!!";  // change button to say done
 
-           };
+            };
 
 
 
@@ -98,22 +97,22 @@
 
     function winnerCheck(){  // this function checks to see if the players health is zero or below
 
-        console.log("we are in winner check");
+        console.log("we are in winner check");  // checking code this far down
 
 
         var result = "no winner";  // variable containing what would happen if there is no winner by all being false
 
-        if(fightersTogether[0].health < 1 && fightersTogether[1].health < 1){   // if both players health below zero, has been changed to use array
+        if(fightersTogether[0].health < 1 && fightersTogether[1].health < 1){   // if both players health below zero, has been changed to use object
 
             result = "You Both Die - LOSERS!"; // then both lose
 
-        }else if(fightersTogether[0].health < 1){
+        }else if(fightersTogether[0].health < 1){   // if player ones health is below one
 
-            result = fightersTogether[1].name + "Wins!!!";     // player two wins, has been changed to use array
+            result = fightersTogether[1].name + "Wins!!!";     // player two wins, has been changed to use object
 
-        }else if(fightersTogether[1].health < 1){    // if player two health below one, has been changed to use array
+        }else if(fightersTogether[1].health < 1){    // if player two health below one, has been changed to use object
 
-            result =  fightersTogether[0].name + "Wins!!!";    // then player one wins, has been changed to use array
+            result =  fightersTogether[0].name + "Wins!!!";    // then player one wins, has been changed to use object
 
 
 
