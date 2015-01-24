@@ -43,7 +43,7 @@
     console.log(roundText);
 
 
-    //roundText.innerHTML = "Click Fight Button to Start!";  // this is the message printing to h5
+    roundText.innerHTML = "Click Fight Button to Start!";  // this is the message printing to h5
     fighterOneText.innerHTML = fightersTogether[0].name + ":  " + fightersTogether[0].health;  // this is setting up the player name and health
     fighterTwoText.innerHTML = fightersTogether[1].name + ":  " + fightersTogether[1].health;  // into the html file
 
