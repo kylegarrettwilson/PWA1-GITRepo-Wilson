@@ -306,30 +306,48 @@ console.log('------------ DOM Events -------------------');
 
 console.log('------------ Regular Expressions -------------------');
 
+	//jamesbond@fullsail
+	//JamesBond@fullsail
+	//James-Bond@fullsail
+	//James.Bond@fullsail
+
+	// there are many different types of email formats so this is to check for proper format
+	// regular expressions try to make sure things are following specific format requirements
+	// the pattern needs to match what the user types in to format correctly
+	// they all start with a /pattern/ to enclose pattern
+
+	var emailRegEx= /^[\w\.\-]+@([\w\-]+\.)+[a-];/;
+
+	// set up this way
+
+
+
+
+
 /******************************************************************************
 STUDENT ACTIVITY
 
 	1.  Write a RegEx for a basic name (containing only letters)
 
-		Answer: 
+		Answer: /^[a-zA-Z]+$/
 
 	2.  What are the possible answers for this: /[Jj]ava[Ss]cript/
 
-		Answer: 
+		Answer: "Javascript", "JavaScript", "javascript", or "javaScript"
 
 	3. 	What are the possible answers for this: /^(Java)?Script$/
 
-		Answer: 
+		Answer: start with Java. "JavaScript" or "Script" but not "JavaJavaScript"
 
 	4. 	Describe the possible answer for this: /^[a-zA-Z\^\-\.]+$/
 
-		Answer: 
+		Answer: matches one or more of only letters
 
 	5.	Combining character sets can create sequences of matches.
 		
 		Describe the possible answers for this: /^[a-zA-Z]+[0-9]$/ 	
 
-		Answer: 
+		Answer: any upper or lowercase letters and any number from 0 to 9 behind the letters
 
 ----------------------------------------------------------------------------- */
 
@@ -346,6 +364,16 @@ STUDENT ACTIVITY
 	split()		string.split.(RegExp): cuts a string into an array, making cuts at matches
 */
 
+	var emailRegEx= /^[\w\.\-]+@([\w\-]+\.)+[a-];/;
+
+	var str = "My personal email is js@google.com but my work email is jc@email.com";
+
+	console.log(emailRegEx.test(str));
+
+	console.log(str.search(emailRegEx));
+
+	var clean = str.replace(emailRegEx, "XXXX@XXXX.com");
+	console.log(clean);
 
 
 
@@ -371,6 +399,12 @@ STUDENT ACTIVITY
 */
 
 // phone number string that matches the RegEx
+
+	//regexlib.com
+
+	// this is the easy way to do it!!!!!!
+
+	
 
 
 
